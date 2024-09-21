@@ -2,19 +2,25 @@ import React from "react";
 
 const TripCard = ({ dayPlan }) => {
 	return (
-		<div key={dayPlan.day} className='mb-6'>
-			<h3 className='text-xl font-semibold mb-2 text-indigo-700'>
-				Day {dayPlan.day}
+		<div key={dayPlan.day} className='p-4 bg-gray-100 mb-4 rounded-lg'>
+			<h3 className='text-xl font-semibold text-indigo-700 mb-4'>
+				{dayPlan.day}
 			</h3>
+
 			<ul className='space-y-2'>
 				{dayPlan.activities.map((activity, index) => (
 					<li
 						key={index}
-						className='border-b pb-2 grid grid-cols-6 gap-x-2'
+						className='grid grid-cols-6 gap-x-4 items-center bg-white p-3 rounded-md shadow-sm'
 					>
-						<p className='font-bold col-span-1'>{activity.time}</p>
-						<p className='text-gray-700 italic col-span-5'>
-							{activity.description}
+						<p className='text-gray-700 italic col-span-4'>
+							{activity.name}
+						</p>
+						<p className='text-center'>
+							{activity?.budget?.transportation || "N/A"}
+						</p>
+						<p className='text-center'>
+							{activity?.budget?.entry_fee || "N/A"}
 						</p>
 					</li>
 				))}

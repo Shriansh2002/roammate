@@ -28,6 +28,16 @@ const FormComponent = ({ data, handleChange, handleSubmit, isLoading }) => {
 						onChange={handleChange}
 						min='1'
 					/>
+					<InputComponent
+						label='Budget'
+						id='budget'
+						name='budget'
+						type='number'
+						placeholder='Enter your budget'
+						value={data.budget}
+						onChange={handleChange}
+						min={10000}
+					/>
 					<ButtonComponent isLoading={isLoading} disabled={isLoading}>
 						{isLoading ? "Finding Your Trip..." : "Find My Trip"}
 					</ButtonComponent>
